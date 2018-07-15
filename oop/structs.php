@@ -3,13 +3,13 @@
 class Database{
     public function __construct($input)
     {
-        echo "{$input}\n";
-    }
+        echo nl2br("{$input}\n");
 
+    }
     public function __destruct()
     {
         // TODO: Implement __destruct() method.
-        echo "destruct\n";
+        echo nl2br("destruct\n");
 
     }
 }
