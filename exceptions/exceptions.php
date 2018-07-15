@@ -6,7 +6,7 @@ class InvalidCCNumberException extends InvalidArgumentException{
     }
 }
 try{
-    processCC();
+    processCC(1);
 }catch (InvalidCCNumberException $e){
     echo $e->getMessage().' ';
     echo get_class($e);
@@ -14,6 +14,9 @@ try{
 //    echo $e->getPrevious()->getMessage().' ';
 //    echo get_class($e->getPrevious());
 
+}finally{
+    echo nl2br("\n");
+    echo "Finally Block";
 }
 function processCC($numb=null,$zipCode=null){
     try{
