@@ -2,15 +2,18 @@
 try{
     processCC();
 }catch (Exception $e){
-    echo $e->getMessage();
+    echo $e->getMessage().' ';
+    echo get_class($e);
     echo nl2br("\n");
-    echo $e->getPrevious()->getMessage();
+    echo $e->getPrevious()->getMessage().' ';
+    echo get_class($e->getPrevious());
+
 }
 function processCC($numb=null,$zipCode=null){
     try{
         validate($numb,$zipCode);
     }catch (Exception $e){
-        throw new Exception('Invalid Input',null,$e);
+        throw new BadFunctionCallException('Invalid Input',null,$e);
     }
     echo "processed";
 }
@@ -18,6 +21,6 @@ function processCC($numb=null,$zipCode=null){
 
 function validate($numb,$zipCode){
     if (is_null($numb)){
-        throw new Exception('No CC Number');
+        throw new InvalidArgumentException('No CC Number');
     }
 }
